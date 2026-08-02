@@ -9,6 +9,12 @@ pipeline {
                 sh 'ls -la'
             }
         }
+        stage('Docker Check') {
+            steps {
+                sh 'docker version'
+                sh 'docker ps'
+             }
+        }
 
         stage('Environment Info') {
             steps {
