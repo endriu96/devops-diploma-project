@@ -9,5 +9,13 @@ pipeline {
                 sh 'ls -la'
             }
         }
+
+        stage('Environment Info') {
+            steps {
+                sh 'whoami'
+                sh 'hostname'
+                sh 'env | sort'
+            }
+        }
     }
 }
