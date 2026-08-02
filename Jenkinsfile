@@ -17,10 +17,12 @@ pipeline {
         }
 
         stage('Run Tests') {
-            steps {
-                sh 'pip3 install -r requirements.txt'
-                sh 'pytest tests'
-            }
+   
+         steps {
+            sh 'python3 -m venv venv'
+            sh './venv/bin/pip install -r requirements.txt'
+            sh './venv/bin/pytest tests'
+             }
         }
 
         stage('Docker Build') {
