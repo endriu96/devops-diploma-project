@@ -9,18 +9,16 @@ pipeline {
                 sh 'ls -la'
             }
         }
-        stage('Docker Check') {
+
+        stage('Python Check') {
             steps {
-                sh 'docker version'
-                sh 'docker ps'
-             }
+                sh 'python3 --version'
+            }
         }
 
-        stage('Environment Info') {
+        stage('Docker Build') {
             steps {
-                sh 'whoami'
-                sh 'hostname'
-                sh 'env | sort'
+                sh 'docker build -t devops-diploma-app:latest .'
             }
         }
     }
