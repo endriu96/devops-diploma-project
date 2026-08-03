@@ -1,0 +1,21 @@
+---
+- name: Deploy DevOps Application
+  hosts: aws
+  become: true
+
+  tasks:
+
+    - name: Stop existing container
+      shell: docker stop devops-app
+      ignore_errors: true
+
+    - name: Remove existing container
+      shell: docker rm devops-app
+      ignore_errors: true
+
+    - name: Run new container
+      shell: |
+        docker run -d \
+        --name devops-app \
+        -p 5000:5000 \
+        devops-diploma-app:latest

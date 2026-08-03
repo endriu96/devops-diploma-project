@@ -1,0 +1,9 @@
+---
+- name: Restart DevOps Application
+  hosts: aws
+  become: true
+
+  tasks:
+    - name: Restart application container
+      shell: |
+        docker restart devops-app

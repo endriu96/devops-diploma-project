@@ -1,0 +1,13 @@
+---
+- name: Check Docker
+  hosts: aws
+  become: true
+
+  tasks:
+    - name: Show Docker version
+      command: docker --version
+      register: docker_output
+
+    - name: Print Docker version
+      debug:
+        var: docker_output.stdout

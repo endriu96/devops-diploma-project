@@ -1,0 +1,14 @@
+groups:
+  - name: devops-alerts
+
+    rules:
+      - alert: DevOpsAppDown
+        expr: up{job="devops-app"} == 0
+        for: 1m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "DevOps Application Down"
+          description: "Flask application is not responding."
