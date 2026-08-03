@@ -4,32 +4,56 @@
 
 Jędrzej Świerczyński
 
-## Project Goal
+## Project Description
 
-The goal of this project is to build a complete DevOps platform based on modern technologies and best practices.
+The project presents a complete DevOps environment built using modern automation, containerization, monitoring and orchestration tools.
+
+The main objective was to design and implement a CI/CD platform that allows automatic application testing, building, deployment and monitoring in a cloud environment.
 
 ## Technologies
 
 - Git
 - GitHub
 - Terraform
-- AWS
-- Ubuntu
+- AWS EC2
+- Ubuntu Linux
 - Docker
-- Docker Hub
 - Jenkins
 - Ansible
 - Prometheus
 - Grafana
-- Loki
 - Alertmanager
 - Kubernetes
+- Python
+- Flask
 
-## Planned Architecture
+## Architecture
 
-GitHub -> Jenkins -> Docker Hub -> AWS -> Monitoring Stack
+```text
+Git Push
+    │
+    ▼
+GitHub Repository
+    │
+    ▼
+GitHub Webhook
+    │
+    ▼
+Jenkins Pipeline (CI/CD)
+    │
+    ├── Automated Tests
+    ├── Docker Build
+    └── Docker Deployment
+    │
+    ▼
+Docker Engine (AWS EC2)
+    │
+    ▼
+Flask Application
+    │
+    ├── Prometheus
+    ├── Grafana
+    └── Alertmanager
 
-## Project Status
-
-Work in progress.
-webhook test
+Kubernetes
+    └── Application Orchestration and Self-Healing
