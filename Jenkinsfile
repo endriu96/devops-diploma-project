@@ -32,9 +32,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker stop devops-app || true'
-                sh 'docker rm devops-app || true'
-                sh 'docker run -d --name devops-app -p 5000:5000 devops-diploma-app:latest'
+                sh 'ansible-playbook -i ansible/inventory/hosts.ini ansible/playbooks/deploy-app.yml'
                 }
         }
     }
