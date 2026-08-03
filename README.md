@@ -27,9 +27,9 @@ The main objective was to design and implement a CI/CD platform that allows auto
 - Python
 - Flask
 
+test
 ## Architecture
 
-```text
 Git Push
     │
     ▼
